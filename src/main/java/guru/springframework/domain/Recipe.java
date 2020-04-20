@@ -16,9 +16,11 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL) // when deleting recipe deleting notes as well. *All - applies to all operations (delete, persist, merge ... )
     private Notes notes;
 
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
-
 
     private String description;
     private Integer prepTime;
@@ -118,5 +120,13 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
