@@ -42,6 +42,18 @@ public class Recipe {
     // TODO add
     // private Difficulty difficulty
 
+
+    public void addNotes(Notes notes){
+        this.notes = notes;
+        notes.setRecipe(this);
+    }
+
+    public Recipe addIngredient(Ingredient ingredient){
+        this.ingredients.add(ingredient);
+        ingredient.setRecipe(this);
+        return this;
+    }
+
     public Long getId() {
         return id;
     }
